@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager's Ledger: Emotional Balance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #004488;
+            --blue-light: #3377ff;
+            --red: #cc0000;
+            --yellow: #ffcc00;
+            --bg-dark: #0a0a1a;
+            --text-light: #ffffff;
+            --border-thick: 4px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'VT323', monospace;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            text-align: center;
+            color: var(--yellow);
+            text-shadow: 2px 2px 0px var(--red);
+            line-height: 1.5;
+        }
+
+        h1 { font-size: 1.5rem; margin-bottom: 20px; }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; }
+
+        .screen {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pixel-box {
+            background: var(--blue);
+            border: var(--border-thick) solid var(--text-light);
+            box-shadow: 6px 6px 0px var(--blue-light);
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .btn {
+            font-family: 'Press Start 2P', cursive;
+            background: var(--yellow);
+            color: var(--bg-dark);
+            border: var(--border-thick) solid var(--text-light);
+            padding: 15px 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--red);
+            transition: transform 0.1s;
+            margin: 10px auto;
+            display: block;
+            text-transform: uppercase;
+        }
+        .btn:hover { background: #ffea00; }
+        .btn:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px var(--red); }
+        .btn:disabled { background: #888; color: #ccc; box-shadow: none; cursor: not-allowed; }
+
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--yellow); }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+            outline: none;
+        }
+        .input-group input:focus, .input-group select:focus { border-color: var(--yellow); }
+
+        .hud {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--blue);
+            border: 2px solid var(--text-light);
+            padding: 10px 20px;
+            margin-bottom: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .hud-item { font-weight: bold; font-size: 1.4rem; }
+        .progress-container { width: 100%; background: var(--bg-dark); border: 2px solid var(--text-light); height: 20px; margin-top: 10px; }
+        .progress-bar { height: 100%; background: var(--yellow); width: 0%; transition: width 0.3s; }
+        
+        #audioToggle { background: var(--bg-dark); color: var(--text-light); border: 2px solid var(--text-light); cursor: pointer; padding: 5px 10px; font-family: 'VT323'; font-size: 1.2rem; }
+
+        .game-board {
+            display: grid;
+            grid-
